@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ChacraYa - Redirigiendo...</title>
+    <script type="text/javascript">
+      const path = window.location.pathname;
+      const repoPath = '/chacraya/';
+      
+      // Extrae la ruta relativa a la raíz de la aplicación (ej. /contact)
+      let appPath = path.startsWith(repoPath) ? path.substring(repoPath.length) : path;
+
+      // Asegúrate de que tenga una barra inclinada al principio
+      if (!appPath.startsWith('/')) {
+        appPath = '/' + appPath;
+      }
+
+      // Guarda la ruta para que la aplicación principal la lea
+      sessionStorage.setItem('redirectPath', appPath);
+      
+      // Redirige al index.html raíz del repositorio
+      window.location.href = repoPath;
+    </script>
+  </head>
+  <body>
+    Redirigiendo...
+  </body>
+</html> 
